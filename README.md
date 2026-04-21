@@ -167,17 +167,20 @@ ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 ### `git@github.com: Permission denied (publickey)` ao instalar
 
-Máquina sem chave SSH pessoal configurada no GitHub. Como o repo é
-**público**, dá pra forçar HTTPS (sem precisar de autenticação):
+Máquina sem chave SSH pessoal configurada no GitHub. Como os repos são
+**públicos**, dá pra forçar HTTPS (sem precisar de autenticação). **Rode
+o curl universal acima** — ele detecta isso e aplica o fix sozinho.
+
+Se preferir corrigir manualmente, rode **cada linha inteira, sem quebras**
+(são três comandos separados, `--add` acumula em vez de substituir):
 
 ```bash
-git config --global url."https://github.com/".insteadOf "git@github.com:"
-git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
+git config --global --unset-all url.https://github.com/.insteadOf || true
+git config --global --add url.https://github.com/.insteadOf git@github.com:
+git config --global --add url.https://github.com/.insteadOf ssh://git@github.com/
 ```
 
 Depois retente `claude plugin install multiagentes-giordano@giordanorec`.
-O script de instalação 1-linha já detecta e aplica esse fix
-automaticamente se SSH não estiver funcionando.
 
 ### `gh` não autenticado
 
