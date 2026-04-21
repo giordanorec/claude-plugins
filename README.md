@@ -139,6 +139,30 @@ claude plugin uninstall multiagentes-giordano@giordanorec
 claude plugin marketplace remove giordanorec   # opcional
 ```
 
+## Troubleshooting
+
+### `Host key verification failed` ao instalar
+
+Acontece em máquinas novas cujo `~/.ssh/known_hosts` não tem a chave do
+github.com e o SSH está em modo strict. Corrige com:
+
+```bash
+mkdir -p ~/.ssh
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+```
+
+Depois retente `claude plugin install multiagentes-giordano@giordanorec`.
+O script de instalação 1-linha já cuida disso automaticamente.
+
+### `gh` não autenticado
+
+Se o Arquiteto falhar ao criar repo GitHub:
+
+```bash
+gh auth login
+# escolha GitHub.com → SSH → autorize no browser
+```
+
 ## Licença
 
 Cada plugin tem sua própria licença (ver `LICENSE` no repo respectivo).
