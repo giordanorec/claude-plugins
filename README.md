@@ -38,6 +38,16 @@ claude plugin install multiagentes-giordano@giordanorec
 Guia passo a passo pra levar o `multiagentes-giordano` (e qualquer outro
 plugin deste marketplace) pra uma máquina do zero.
 
+### Atalho (Ubuntu/Debian) — 1 linha
+
+```bash
+curl -sSL https://gist.githubusercontent.com/giordanorec/16999a7f1c24c62de46e491191d7c29e/raw/install-multiagentes-giordano.sh | bash
+```
+
+O script instala deps, adiciona o marketplace e o plugin. Você só roda
+`gh auth login` depois se ainda não rodou nunca. Pra outras distros ou
+controle fino, siga o passo a passo abaixo.
+
 ### 1. Dependências do sistema
 
 **Ubuntu/Debian**:
