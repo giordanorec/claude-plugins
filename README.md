@@ -33,42 +33,48 @@ claude plugin install multiagentes-giordano@giordanorec
 
 ---
 
-## Instalação completa em uma máquina nova
+## Instalação em máquina nova
 
-Guia passo a passo pra levar o `multiagentes-giordano` (e qualquer outro
-plugin deste marketplace) pra uma máquina do zero.
+### Instalação rápida (1 comando)
 
-### Atalho (Ubuntu/Debian) — 1 linha
+Funciona em **Linux** (Ubuntu/Debian, Arch, Fedora) e **macOS**:
 
 ```bash
 curl -sSL https://gist.githubusercontent.com/giordanorec/16999a7f1c24c62de46e491191d7c29e/raw/install-multiagentes-giordano.sh | bash
 ```
 
-O script instala deps, adiciona o marketplace e o plugin. Você só roda
-`gh auth login` depois se ainda não rodou nunca. Pra outras distros ou
-controle fino, siga o passo a passo abaixo.
+O script detecta seu SO (via `uname -s`), escolhe o package manager
+(`apt`, `pacman`, `dnf` ou `brew`), instala as deps, ajusta
+`known_hosts` do GitHub, força HTTPS pra clones quando SSH não está
+configurado, adiciona o marketplace e instala o plugin.
 
-### 1. Dependências do sistema
+**Pré-requisitos que o script NÃO instala** (porque dependem de login):
+- **Claude Code**: se não tiver, `npm install -g @anthropic-ai/claude-code`
+  e `claude login`. Docs: https://docs.claude.com/en/docs/claude-code/quickstart
+- **`gh auth login`**: pro Arquiteto criar repo GitHub privado no seu
+  nome. Se ainda não autenticou nesta máquina, rode depois.
 
-**Ubuntu/Debian**:
-```bash
-sudo apt update
-sudo apt install -y tmux jq gh util-linux python3 tilix
-```
+### Windows
 
-**macOS** (via Homebrew):
-```bash
-brew install tmux jq gh python3 util-linux
-# macOS não tem Tilix — use iTerm2 ou outro emulator favorito.
-# O script do dashboard detecta a ausência e avisa.
-```
+Claude Code não roda nativo no Windows — é um shell Unix. **Use WSL2**:
 
-**Arch**:
-```bash
-sudo pacman -S tmux jq github-cli util-linux python tilix
-```
+1. Instale o WSL2 com Ubuntu:
+   https://learn.microsoft.com/en-us/windows/wsl/install
+2. Abra o terminal do Ubuntu (Menu Iniciar → "Ubuntu").
+3. Rode o mesmo `curl ... | bash` de cima.
 
-### 2. Instalar o Claude Code
+### Instalação manual (se preferir controle fino)
+
+#### 1. Dependências do sistema
+
+| SO | Comando |
+|---|---|
+| Ubuntu/Debian | `sudo apt install -y tmux jq gh util-linux python3 tilix` |
+| Arch | `sudo pacman -S tmux jq github-cli util-linux python tilix` |
+| Fedora | `sudo dnf install -y tmux jq gh util-linux python3 tilix` |
+| macOS | `brew install tmux jq gh python3 util-linux` (sem Tilix, usa Terminal.app) |
+
+#### 2. Instalar o Claude Code
 
 Caso ainda não tenha:
 
@@ -79,14 +85,14 @@ claude login
 
 Ver instruções oficiais: https://docs.claude.com/en/docs/claude-code/quickstart
 
-### 3. Autenticar o `gh` (pro Arquiteto conseguir criar repo GitHub)
+#### 3. Autenticar o `gh` (pro Arquiteto conseguir criar repo GitHub)
 
 ```bash
 gh auth login
 # escolha: GitHub.com → SSH → autorize no browser
 ```
 
-### 4. Adicionar o marketplace + instalar o plugin
+#### 4. Adicionar o marketplace + instalar o plugin
 
 ```bash
 claude plugin marketplace add giordanorec/claude-plugins
@@ -100,7 +106,7 @@ claude plugin list | grep multiagentes
 # esperado: multiagentes-giordano@giordanorec  v0.1.0  enabled
 ```
 
-### 5. Usar num projeto novo
+#### 5. Usar num projeto novo
 
 ```bash
 mkdir ~/projetos/meu-projeto
@@ -123,7 +129,7 @@ Depois, ao longo do projeto:
 - `/multiagente-spawn <nome>` — adicionar especialista novo.
 - `/multiagente-dashboard` — reabrir dashboard se fechou.
 
-### 6. Atualizar
+#### 6. Atualizar
 
 Quando uma nova versão for publicada:
 
@@ -132,7 +138,7 @@ claude plugin marketplace update giordanorec
 claude plugin update multiagentes-giordano
 ```
 
-### 7. Desinstalar
+#### 7. Desinstalar
 
 ```bash
 claude plugin uninstall multiagentes-giordano@giordanorec
