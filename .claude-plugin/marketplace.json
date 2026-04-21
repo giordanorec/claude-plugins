@@ -1,0 +1,31 @@
+{
+  "name": "giordanorec",
+  "owner": {
+    "name": "giordanorec"
+  },
+  "metadata": {
+    "description": "Marketplace de plugins Claude Code do giordanorec",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "opcao-b-multiagent",
+      "source": {
+        "source": "github",
+        "repo": "giordanorec/opcao-b-multiagent"
+      },
+      "description": "Fluxo multi-agente com sessões persistentes (Opção B) — Arquiteto + especialistas file-based, dashboard tmux ao vivo, stream-json parseado em tempo real com emoji + cor + diff visual. Bootstraps um projeto inteiro com Discovery, specs/reports, memória persistente.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "tags": [
+        "multiagent",
+        "subagents",
+        "tmux",
+        "dashboard",
+        "orchestration",
+        "file-based-messaging",
+        "workflow"
+      ]
+    }
+  ]
+}
