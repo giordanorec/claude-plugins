@@ -9,12 +9,12 @@
   },
   "plugins": [
     {
-      "name": "opcao-b-multiagent",
+      "name": "multiagentes-giordano",
       "source": {
         "source": "github",
-        "repo": "giordanorec/opcao-b-multiagent"
+        "repo": "giordanorec/multiagentes-giordano"
       },
-      "description": "Fluxo multi-agente com sessões persistentes (Opção B) — Arquiteto + especialistas file-based, dashboard tmux ao vivo, stream-json parseado em tempo real com emoji + cor + diff visual. Bootstraps um projeto inteiro com Discovery, specs/reports, memória persistente.",
+      "description": "Fluxo multi-agente com sessões persistentes — Arquiteto + time de especialistas file-based, dashboard tmux ao vivo, stream-json parseado em tempo real com emoji, cor e diff visual. Bootstraps um projeto inteiro com Discovery, specs/reports, memória persistente e repo GitHub.",
       "version": "0.1.0",
       "category": "workflow",
       "tags": [

@@ -19,25 +19,24 @@ claude plugin install <nome>@giordanorec
 
 ## Plugins disponíveis
 
-### [`opcao-b-multiagent`](https://github.com/giordanorec/opcao-b-multiagent)
+### [`multiagentes-giordano`](https://github.com/giordanorec/multiagentes-giordano)
 
-Fluxo multi-agente com sessões persistentes (Opção B). Arquiteto
-coordena um time de especialistas, cada um é uma sessão Claude Code
-separada, comunicação via arquivos (`specs/`, `reports/`, `memory/`).
-Dashboard tmux ao vivo mostra todos os agentes trabalhando em paralelo,
-com texto formatado semanticamente (tool calls com emoji+cor, diff
-visual, badges).
+Fluxo multi-agente com sessões persistentes. Arquiteto coordena um time
+de especialistas, cada um é uma sessão Claude Code separada, comunicação
+via arquivos (`specs/`, `reports/`, `memory/`). Dashboard tmux ao vivo
+mostra todos os agentes trabalhando em paralelo, com texto formatado
+semanticamente (tool calls com emoji + cor, diff visual, badges).
 
 **Instala**:
 
 ```bash
-claude plugin install opcao-b-multiagent@giordanorec
+claude plugin install multiagentes-giordano@giordanorec
 ```
 
 **Comandos**:
-- `/opcao-b-init [nome]` — Discovery + setup inteiro + spawn + dashboard.
-- `/opcao-b-spawn <agente>` — spawna especialista num projeto já iniciado.
-- `/opcao-b-dashboard` — abre (ou reabre) o dashboard tmux.
+- `/multiagente-init [nome]` — Discovery + setup inteiro + spawn + dashboard.
+- `/multiagente-spawn <agente>` — spawna especialista num projeto já iniciado.
+- `/multiagente-dashboard` — abre (ou reabre) o dashboard tmux.
 
 ## Licença
 
