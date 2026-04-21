@@ -143,16 +143,26 @@ claude plugin marketplace remove giordanorec   # opcional
 
 ### `Host key verification failed` ao instalar
 
-Acontece em máquinas novas cujo `~/.ssh/known_hosts` não tem a chave do
-github.com e o SSH está em modo strict. Corrige com:
+Máquina nova sem a chave do github.com em `~/.ssh/known_hosts`:
 
 ```bash
 mkdir -p ~/.ssh
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 ```
 
+### `git@github.com: Permission denied (publickey)` ao instalar
+
+Máquina sem chave SSH pessoal configurada no GitHub. Como o repo é
+**público**, dá pra forçar HTTPS (sem precisar de autenticação):
+
+```bash
+git config --global url."https://github.com/".insteadOf "git@github.com:"
+git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
+```
+
 Depois retente `claude plugin install multiagentes-giordano@giordanorec`.
-O script de instalação 1-linha já cuida disso automaticamente.
+O script de instalação 1-linha já detecta e aplica esse fix
+automaticamente se SSH não estiver funcionando.
 
 ### `gh` não autenticado
 
