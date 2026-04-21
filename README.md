@@ -43,16 +43,25 @@ Funciona em **Linux** (Ubuntu/Debian, Arch, Fedora) e **macOS**:
 curl -sSL https://gist.githubusercontent.com/giordanorec/16999a7f1c24c62de46e491191d7c29e/raw/install-multiagentes-giordano.sh | bash
 ```
 
-O script detecta seu SO (via `uname -s`), escolhe o package manager
-(`apt`, `pacman`, `dnf` ou `brew`), instala as deps, ajusta
-`known_hosts` do GitHub, força HTTPS pra clones quando SSH não está
-configurado, adiciona o marketplace e instala o plugin.
+O script cuida de **tudo** que dá pra automatizar numa máquina zero:
 
-**Pré-requisitos que o script NÃO instala** (porque dependem de login):
-- **Claude Code**: se não tiver, `npm install -g @anthropic-ai/claude-code`
-  e `claude login`. Docs: https://docs.claude.com/en/docs/claude-code/quickstart
-- **`gh auth login`**: pro Arquiteto criar repo GitHub privado no seu
-  nome. Se ainda não autenticou nesta máquina, rode depois.
+1. Detecta SO (`uname -s`) e package manager (`apt`, `pacman`, `dnf`, `brew`).
+2. Instala **todas** as deps: `tmux`, `jq`, `gh` CLI, `util-linux`
+   (uuidgen/sed), `python3`, `tilix` (Linux), `git`, `curl`, `nodejs`, `npm`.
+3. Instala o **Claude Code** via npm (`npm install -g @anthropic-ai/claude-code`).
+4. Ajusta `~/.ssh/known_hosts` com a chave do github.com.
+5. Se SSH do github não autenticar (sem chave pessoal), força git a
+   clonar via HTTPS.
+6. Adiciona o marketplace `giordanorec` e instala o plugin
+   `multiagentes-giordano`.
+
+**As 2 únicas coisas manuais** (porque são logins interativos):
+
+- **`claude login`** — primeira vez que o Claude Code é usado. O script
+  instala o binário e pede pra você rodar `claude login`; depois
+  re-execute o curl e ele continua de onde parou.
+- **`gh auth login`** — só é necessário quando o Arquiteto for criar
+  repo GitHub privado pro projeto. Pode deixar pra depois.
 
 ### Windows
 
@@ -69,10 +78,10 @@ Claude Code não roda nativo no Windows — é um shell Unix. **Use WSL2**:
 
 | SO | Comando |
 |---|---|
-| Ubuntu/Debian | `sudo apt install -y tmux jq gh util-linux python3 tilix` |
-| Arch | `sudo pacman -S tmux jq github-cli util-linux python tilix` |
-| Fedora | `sudo dnf install -y tmux jq gh util-linux python3 tilix` |
-| macOS | `brew install tmux jq gh python3 util-linux` (sem Tilix, usa Terminal.app) |
+| Ubuntu/Debian | `sudo apt install -y tmux jq gh util-linux python3 tilix git curl nodejs npm` |
+| Arch | `sudo pacman -S tmux jq github-cli util-linux python tilix git curl nodejs npm` |
+| Fedora | `sudo dnf install -y tmux jq gh util-linux python3 tilix git curl nodejs npm` |
+| macOS | `brew install tmux jq gh python3 util-linux git node` (sem Tilix, usa Terminal.app) |
 
 #### 2. Instalar o Claude Code
 
