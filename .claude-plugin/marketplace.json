@@ -15,7 +15,7 @@
         "repo": "giordanorec/multiagentes-giordano"
       },
       "description": "Fluxo multi-agente com sessões persistentes — Arquiteto + time de especialistas file-based, dashboard tmux ao vivo, stream-json parseado em tempo real com emoji, cor e diff visual. Bootstraps um projeto inteiro com Discovery, specs/reports, memória persistente e repo GitHub.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "workflow",
       "tags": [
         "multiagent",
