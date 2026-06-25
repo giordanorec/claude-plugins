@@ -34,7 +34,7 @@
         "repo": "giordanorec/claude-brainstorm-multiagent"
       },
       "description": "Ideação multi-agente que combate conformidade de LLM por diversidade estrutural: decomposição morfológica (Zwicky), MAP-Elites archive, personas interview-grounded com cosine<0.7, críticos adversariais (Black Hat + Minority Voice), Elo tournament com juízes rotacionados, Pareto front sobre novelty×feasibility×impact, e dashboard force-graph 2D vivo com partículas, fusões e bifurcações em tempo real. 6 tiers de intensidade (instant a epic).",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "ideation",
       "tags": [
         "brainstorming",
