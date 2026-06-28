@@ -1,0 +1,111 @@
+{
+  "name": "Giordano's AI Coding Tools",
+  "owner": "giordanorec",
+  "description": "Catálogo central das ferramentas de AI coding do Giordano (plugins, skills, MCP). Cada ferramenta vive no seu próprio repo; este hub indexa tudo e documenta como instalar em cada ambiente de IA.",
+  "version": "1.0.0",
+  "claude_code_marketplace": "giordanorec/ai-coding-tools",
+  "universal_skill_installer": "npx skills@latest add <repo>/<skill>",
+  "hosts": ["claude-code", "codex", "cursor", "gemini-cli", "aider", "windsurf", "other"],
+  "tools": [
+    {
+      "id": "mad",
+      "title": "mad — MultiAgent Decanting",
+      "description": "Orquestração multi-agente em modo decanting nativo do Claude Code: Arquiteto coordena especialistas via Agent tool (sem claude -p), decanting obrigatório ao fim de cada feature, memória institucional em arquivo, trust ladder, guardrails por blast radius, dashboard HTML local cross-platform, OpenTelemetry GenAI e discovery profundo.",
+      "repo": "giordanorec/multiagents-decanting",
+      "formats": ["claude-plugin"],
+      "portable_pieces": ["skill:mad-discovery", "skill:mad-workflow"],
+      "requirements": ["Python 3.9+", "pip install websockets"],
+      "install": {
+        "claude-code": {
+          "supported": true,
+          "method": "plugin",
+          "steps": [
+            "claude plugin marketplace add giordanorec/ai-coding-tools",
+            "claude plugin install mad"
+          ]
+        },
+        "other": {
+          "supported": false,
+          "note": "A orquestração depende do Agent tool, hooks e subagents do Claude Code. As skills mad-discovery e mad-workflow podem ser portadas via SKILL.md (roadmap)."
+        }
+      }
+    },
+    {
+      "id": "claude-brainstorm-multiagent",
+      "title": "brainstorm — ideação multi-agente (Quality-Diversity)",
+      "description": "Ideação que combate conformidade de LLM por diversidade estrutural: decomposição morfológica (Zwicky), MAP-Elites, personas interview-grounded, críticos adversariais, Elo tournament, Pareto front, dashboard force-graph vivo. 6 tiers (instant a epic).",
+      "repo": "giordanorec/claude-brainstorm-multiagent",
+      "formats": ["claude-plugin", "mcp"],
+      "portable_pieces": ["mcp:brainstorm-tools", "skill:brainstorm"],
+      "requirements": ["Python 3.10+", "uv/uvx"],
+      "install": {
+        "claude-code": {
+          "supported": true,
+          "method": "plugin",
+          "steps": [
+            "claude plugin marketplace add giordanorec/ai-coding-tools",
+            "claude plugin install claude-brainstorm-multiagent"
+          ]
+        },
+        "other": {
+          "supported": "partial",
+          "note": "O MCP server brainstorm-tools (cross-tool) e a skill brainstorm podem ser usados; os 8 agentes, comandos e hooks são específicos do Claude Code. Port completo: roadmap."
+        }
+      }
+    },
+    {
+      "id": "discovery",
+      "title": "discovery — entrevistador de intent (cross-tool)",
+      "description": "Entrevistador de discovery que extrai intent antes de uma spec: postura afiada (antecipa, desconfia, dança afunilar/abrir-portas) + rigor. Skill pura, portável.",
+      "repo": "giordanorec/skills",
+      "formats": ["skill"],
+      "portable_pieces": ["skill:discovery"],
+      "requirements": [],
+      "install": {
+        "claude-code": {
+          "supported": true,
+          "method": "skill",
+          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+        },
+        "codex": {
+          "supported": true,
+          "method": "skill",
+          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+        },
+        "cursor": {
+          "supported": true,
+          "method": "skill",
+          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+        },
+        "other": {
+          "supported": true,
+          "method": "skill",
+          "note": "O instalador npx skills pergunta em quais ferramentas instalar (Claude Code, Codex, Gemini CLI, Cursor, Aider, Windsurf e outras)."
+        }
+      }
+    },
+    {
+      "id": "multiagentes-giordano",
+      "title": "multiagentes-giordano — fluxo multi-agente (tmux, legado)",
+      "description": "Fluxo multi-agente com sessões persistentes (claude -p --resume), dashboard tmux ao vivo. Predecessor do mad. Linux-first.",
+      "repo": "giordanorec/multiagentes-giordano",
+      "formats": ["claude-plugin"],
+      "portable_pieces": [],
+      "requirements": ["Linux", "tmux", "Python"],
+      "install": {
+        "claude-code": {
+          "supported": true,
+          "method": "plugin",
+          "steps": [
+            "claude plugin marketplace add giordanorec/ai-coding-tools",
+            "claude plugin install multiagentes-giordano"
+          ]
+        },
+        "other": {
+          "supported": false,
+          "note": "Usa tmux e claude -p; específico de Linux + Claude Code."
+        }
+      }
+    }
+  ]
+}
