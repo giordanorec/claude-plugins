@@ -2,19 +2,35 @@
   "name": "Giordano's AI Coding Tools",
   "owner": "giordanorec",
   "description": "Catálogo central das ferramentas de AI coding do Giordano (plugins, skills, MCP). Cada ferramenta vive no seu próprio repo; este hub indexa tudo e documenta como instalar em cada ambiente de IA.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "claude_code_marketplace": "giordanorec/ai-coding-tools",
   "universal_skill_installer": "npx skills@latest add <repo>/<skill>",
-  "hosts": ["claude-code", "codex", "cursor", "gemini-cli", "aider", "windsurf", "other"],
+  "hosts": [
+    "claude-code",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "aider",
+    "windsurf",
+    "other"
+  ],
   "tools": [
     {
       "id": "mad",
       "title": "mad — MultiAgent Decanting",
       "description": "Orquestração multi-agente em modo decanting nativo do Claude Code: Arquiteto coordena especialistas via Agent tool (sem claude -p), decanting obrigatório ao fim de cada feature, memória institucional em arquivo, trust ladder, guardrails por blast radius, dashboard HTML local cross-platform, OpenTelemetry GenAI e discovery profundo.",
       "repo": "giordanorec/multiagents-decanting",
-      "formats": ["claude-plugin"],
-      "portable_pieces": ["skill:mad-discovery", "skill:mad-workflow"],
-      "requirements": ["Python 3.9+", "pip install websockets"],
+      "formats": [
+        "claude-plugin"
+      ],
+      "portable_pieces": [
+        "skill:mad-discovery",
+        "skill:mad-workflow"
+      ],
+      "requirements": [
+        "Python 3.9+",
+        "pip install websockets"
+      ],
       "install": {
         "claude-code": {
           "supported": true,
@@ -35,9 +51,18 @@
       "title": "brainstorm — ideação multi-agente (Quality-Diversity)",
       "description": "Ideação que combate conformidade de LLM por diversidade estrutural: decomposição morfológica (Zwicky), MAP-Elites, personas interview-grounded, críticos adversariais, Elo tournament, Pareto front, dashboard force-graph vivo. 6 tiers (instant a epic).",
       "repo": "giordanorec/claude-brainstorm-multiagent",
-      "formats": ["claude-plugin", "mcp"],
-      "portable_pieces": ["mcp:brainstorm-tools", "skill:brainstorm"],
-      "requirements": ["Python 3.10+", "uv/uvx"],
+      "formats": [
+        "claude-plugin",
+        "mcp"
+      ],
+      "portable_pieces": [
+        "mcp:brainstorm-tools",
+        "skill:brainstorm"
+      ],
+      "requirements": [
+        "Python 3.10+",
+        "uv/uvx"
+      ],
       "install": {
         "claude-code": {
           "supported": true,
@@ -58,24 +83,34 @@
       "title": "discovery — entrevistador de intent (cross-tool)",
       "description": "Entrevistador de discovery que extrai intent antes de uma spec: postura afiada (antecipa, desconfia, dança afunilar/abrir-portas) + rigor. Skill pura, portável.",
       "repo": "giordanorec/skills",
-      "formats": ["skill"],
-      "portable_pieces": ["skill:discovery"],
+      "formats": [
+        "skill"
+      ],
+      "portable_pieces": [
+        "skill:discovery"
+      ],
       "requirements": [],
       "install": {
         "claude-code": {
           "supported": true,
           "method": "skill",
-          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+          "steps": [
+            "npx skills@latest add giordanorec/skills/discovery"
+          ]
         },
         "codex": {
           "supported": true,
           "method": "skill",
-          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+          "steps": [
+            "npx skills@latest add giordanorec/skills/discovery"
+          ]
         },
         "cursor": {
           "supported": true,
           "method": "skill",
-          "steps": ["npx skills@latest add giordanorec/skills/discovery"]
+          "steps": [
+            "npx skills@latest add giordanorec/skills/discovery"
+          ]
         },
         "other": {
           "supported": true,
@@ -89,9 +124,15 @@
       "title": "multiagentes-giordano — fluxo multi-agente (tmux, legado)",
       "description": "Fluxo multi-agente com sessões persistentes (claude -p --resume), dashboard tmux ao vivo. Predecessor do mad. Linux-first.",
       "repo": "giordanorec/multiagentes-giordano",
-      "formats": ["claude-plugin"],
+      "formats": [
+        "claude-plugin"
+      ],
       "portable_pieces": [],
-      "requirements": ["Linux", "tmux", "Python"],
+      "requirements": [
+        "Linux",
+        "tmux",
+        "Python"
+      ],
       "install": {
         "claude-code": {
           "supported": true,
@@ -104,6 +145,68 @@
         "other": {
           "supported": false,
           "note": "Usa tmux e claude -p; específico de Linux + Claude Code."
+        }
+      }
+    },
+    {
+      "id": "web-beautify",
+      "title": "web-beautify — sites nivel top mundial (Apple/Stripe/Nike-tier)",
+      "description": "Pipeline 5-fase pra embelezar websites — Context → Plan (DESIGN.md âncora real de 73+ brands) → Implement (recipes Awwwards-tier: bento, kinetic, mesh, marquee, glass) → Red Team multi-perspectiva (5 críticos paralelos: craft, a11y, perf, originality, UX) → Iterate até aprovado. Estende a anthropic/frontend-design puxando design systems REAIS (não inventados) e adicionando time de críticos.",
+      "repo": "giordanorec/skills",
+      "formats": [
+        "skill"
+      ],
+      "portable_pieces": [
+        "skill:web-beautify"
+      ],
+      "requirements": [],
+      "install": {
+        "claude-code": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "codex": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "cursor": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "gemini-cli": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "aider": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "windsurf": {
+          "supported": true,
+          "method": "skill",
+          "steps": [
+            "npx skills@latest add giordanorec/skills/web-beautify"
+          ]
+        },
+        "other": {
+          "supported": true,
+          "method": "skill",
+          "note": "Skill puramente markdown (SKILL.md + references/agents/recipes). Copie a pasta web-beautify pra ~/.<tool>/skills/"
         }
       }
     }
