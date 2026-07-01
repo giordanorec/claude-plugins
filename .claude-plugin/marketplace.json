@@ -15,7 +15,7 @@
         "repo": "giordanorec/multiagents-decanting"
       },
       "description": "mad (MultiAgent Decanting) — orquestração multi-agente em modo decanting nativo do Claude Code: o Arquiteto coordena especialistas via Agent tool (sem claude -p, sem processos em background), decanting obrigatório ao fim de cada feature, memória institucional em arquivo, trust ladder, guardrails proporcionais ao blast radius, dashboard HTML local cross-platform, OpenTelemetry GenAI e discovery profundo (postura + rigor). Thin wrapper sobre Claude Code; Windows nativo, macOS e Linux.",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "category": "workflow",
       "tags": [
         "multiagent",
