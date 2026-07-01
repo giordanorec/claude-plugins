@@ -45,7 +45,7 @@
           "note": "A orquestração depende do Agent tool, hooks e subagents do Claude Code. As skills mad-discovery e mad-workflow podem ser portadas via SKILL.md (roadmap)."
         }
       },
-      "version": "1.8.0"
+      "version": "1.8.1"
     },
     {
       "id": "claude-brainstorm-multiagent",
